@@ -156,7 +156,7 @@ export default function Services() {
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ delay: 0.2, duration: 0.8 }}
-        className="flex gap-3 mb-12 overflow-x-auto pb-2 -mx-6 px-6 md:mx-0 md:pb-0"
+        className="flex gap-3 mb-12 overflow-x-auto pb-2 -mx-6 px-6 md:mx-0 md:pb-0 scrollbar-hide [overscroll-behavior-x:contain]"
       >
         {categories.map((category, idx) => {
           const Icon = category.icon;

@@ -48,7 +48,7 @@ export default function Footer() {
                 key={label}
                 href="#"
                 aria-label={label}
-                className="text-[#3A3A3A] hover:text-[#C8A96E] transition-colors duration-300"
+                className="flex items-center justify-center w-11 h-11 text-[#3A3A3A] hover:text-[#C8A96E] transition-colors duration-300"
               >
                 <Icon size={18} weight="light" />
               </a>

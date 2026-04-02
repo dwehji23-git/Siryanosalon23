@@ -1,19 +1,29 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform, motionValue } from "framer-motion";
 import { ArrowRight, MapPin } from "@phosphor-icons/react";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 1024);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
 
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-  const textY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const _imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
+  const _imageOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const _textY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+
+  const imageScale = isMobile ? motionValue(1) : _imageScale;
+  const imageOpacity = isMobile ? motionValue(1) : _imageOpacity;
+  const textY = isMobile ? motionValue(0) : _textY;
 
   return (
     <section
@@ -108,7 +118,7 @@ export default function Hero() {
           className="absolute inset-0 origin-center"
         >
           <video
-            src="/siryano hero.mp4"
+            src="/siryano-hero.mp4"
             autoPlay
             loop
             muted
@@ -149,16 +159,16 @@ export default function Hero() {
       </div>
 
       {/* Mobile bg video */}
-      <div className="absolute inset-0 lg:hidden">
+      <div className="absolute inset-0 lg:hidden z-0">
         <video
-          src="/siryano hero.mp4"
+          src="/siryano-hero.mp4"
           autoPlay
           loop
           muted
           playsInline
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0C] via-[#0C0C0C]/75 to-[#0C0C0C]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0C] via-[#0C0C0C]/50 to-[#0C0C0C]/10" />
       </div>
 
       {/* Bottom gradient fade */}

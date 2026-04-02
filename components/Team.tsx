@@ -94,7 +94,10 @@ export default function Team() {
                       {barber.role}
                     </p>
                   </div>
-                  <button className="p-1.5 border border-[#2A2A2A] hover:border-[#C8A96E]/40 transition-colors duration-300">
+                  <button
+                    className="flex items-center justify-center w-11 h-11 border border-[#2A2A2A] hover:border-[#C8A96E]/40 transition-colors duration-300"
+                    aria-label={`${barber.name} on Instagram`}
+                  >
                     <InstagramLogo
                       size={14}
                       weight="light"

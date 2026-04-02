@@ -12,9 +12,9 @@ const images = [
 ];
 
 const aspectMap = {
-  tall: "row-span-2",
-  square: "row-span-1",
-  wide: "row-span-1 col-span-2",
+  tall: "aspect-[2/3] md:aspect-auto md:row-span-2",
+  square: "aspect-square md:aspect-auto md:row-span-1",
+  wide: "aspect-video md:aspect-auto md:row-span-1 md:col-span-2",
 };
 
 const sizeMap = {
@@ -54,7 +54,7 @@ export default function Gallery() {
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 grid-rows-auto md:grid-rows-[280px_280px] gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 md:grid-rows-[280px_280px] gap-2">
           {images.map((img, i) => (
             <motion.div
               key={img.image}

@@ -21,6 +21,20 @@ export default function Nav() {
     return unsub;
   }, [scrollY]);
 
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   return (
     <>
       <motion.nav
@@ -69,8 +83,10 @@ export default function Nav() {
 
           {/* Mobile burger */}
           <button
-            className="md:hidden text-[#F5F0E8] p-1"
+            className="md:hidden text-[#F5F0E8] p-2.5"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
           >
             {menuOpen ? <X size={24} /> : <List size={24} />}
           </button>
@@ -82,7 +98,7 @@ export default function Nav() {
         initial={false}
         animate={menuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed inset-0 z-40 bg-[#0C0C0C] flex flex-col items-center justify-center gap-10 ${
+        className={`fixed inset-0 z-40 bg-[#0C0C0C] flex flex-col items-center justify-center gap-10 overscroll-none ${
           menuOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
       >
