@@ -1,7 +1,7 @@
 // lib/homeServiceData.ts
 
 export const HOME_SERVICE_HOURS = {
-  start: 9,    // 9 AM
+  start: 11,    // 11 AM
   end: 23,     // 11 PM
 };
 
@@ -29,7 +29,7 @@ export interface BookingFormData {
 
 export interface BookingDateTime {
   date: Date;
-  hour: number; // 9-23
+  hour: number; // 11-23
 }
 
 export interface CompleteBooking extends BookingFormData, BookingDateTime {
