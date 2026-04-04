@@ -20,14 +20,14 @@ const LOCATIONS = [
     name: 'Dubai',
     address: 'Business Bay — Escape Tower',
     detail: 'Next to Metro · Free Parking',
-    whatsapp: '97143387337',
+    whatsapp: '971568339874',
   },
   {
     id: 'abu-dhabi',
     name: 'Abu Dhabi',
     address: 'Al Seef Village Mall, 1st Floor',
     detail: '27 Al Murouj St · Al Muntazah',
-    whatsapp: '97124403338',
+    whatsapp: '971568339917',
   },
 ];
 
@@ -357,7 +357,17 @@ function ConfirmationStep({
   const serviceNames = getServiceNames(formData.selectedServiceIds);
   const totalPrice = calculateTotalPrice(formData.selectedServiceIds);
 
-  const message = `Hi Siryano (${location.name}), I'd like to book the following services: ${serviceNames.join(', ')} on ${formatDate(dateTime.date)} at ${formatTime(dateTime.hour)}. Name: ${formData.name}. WhatsApp: ${formData.whatsapp}`;
+  const message = `Hi Siryano ${location.name}! I'd like to book an appointment.
+
+📍 Location: ${location.name} — ${location.address}
+👤 Name: ${formData.name}
+📱 WhatsApp: ${formData.whatsapp}
+📅 Date: ${formatDate(dateTime.date)}
+🕐 Time: ${formatTime(dateTime.hour)}
+💇 Services: ${serviceNames.join(', ')}
+💰 Total: AED ${totalPrice}
+
+Looking forward to my visit!`;
   const whatsappLink = `https://wa.me/${location.whatsapp}?text=${encodeURIComponent(message)}`;
 
   return (
