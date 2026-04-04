@@ -62,12 +62,17 @@ export default function Booking() {
         </motion.div>
 
         {/* Info cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#2A2A2A]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#2A2A2A]">
           {[
             {
               icon: MapPin,
-              label: "Location",
-              lines: ["Business Bay, Dubai", "Escape Tower — Next to Metro", "Free Parking Available"],
+              label: "Dubai",
+              lines: ["Business Bay", "Escape Tower — Next to Metro", "Free Parking Available"],
+            },
+            {
+              icon: MapPin,
+              label: "Abu Dhabi",
+              lines: ["Al Seef Village Mall, 1st Floor", "27 Al Murouj St", "Al Muntazah — Zone 1"],
             },
             {
               icon: Clock,
