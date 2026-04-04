@@ -75,7 +75,7 @@ export default function Nav() {
 
           {/* CTA */}
           <a
-            href="#contact"
+            href="/book"
             className="hidden md:flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase font-semibold text-[#0C0C0C] bg-[#C8A96E] px-6 py-2.5 hover:bg-[#F0D090] transition-all duration-300 active:scale-[0.98]"
           >
             Book Now
@@ -116,7 +116,7 @@ export default function Nav() {
           </motion.a>
         ))}
         <motion.a
-          href="#contact"
+          href="/book"
           initial={{ opacity: 0, y: 20 }}
           animate={menuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ delay: 0.32, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}

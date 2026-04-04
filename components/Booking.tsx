@@ -119,7 +119,7 @@ export default function Booking() {
                 Call Now
               </button>
               <a
-                href="/home-service"
+                href="/book"
                 className="group flex items-center gap-2 bg-transparent border-2 border-[#0C0C0C] text-[#0C0C0C] px-8 py-4 text-[12px] tracking-[0.2em] uppercase font-semibold hover:bg-[#0C0C0C]/10 transition-all duration-300 active:scale-[0.98]"
               >
                 Book Online
