@@ -9,7 +9,11 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://siryano.com"),
+  metadataBase: new URL("https://www.siryano.com"),
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
   title: {
     default: "Siryano — Best Barbershop in Business Bay, Dubai",
     template: "%s | Siryano Barbershop Dubai",
@@ -31,7 +35,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Siryano — Best Barbershop in Business Bay, Dubai",
     description: "Premium men's grooming in the heart of Business Bay. Haircuts, fades, beard shaping & home barber service. Est. 2007. Open daily 9AM–11PM.",
-    url: "https://siryano.com",
+    url: "https://www.siryano.com",
     siteName: "Siryano Barbershop",
     locale: "en_AE",
     images: [
@@ -50,7 +54,7 @@ export const metadata: Metadata = {
     images: ["/hero-barbershop-professional.jpg"],
   },
   alternates: {
-    canonical: "https://siryano.com",
+    canonical: "https://www.siryano.com",
   },
   robots: {
     index: true,
@@ -79,7 +83,7 @@ export default function RootLayout({
     "@type": "HairSalon",
     name: "Siryano Gent Saloon & Spa",
     description: "Best barbershop in Business Bay, Dubai. Premium haircuts, skin fades, beard grooming and home barber service.",
-    url: "https://siryano.com",
+    url: "https://www.siryano.com",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Escape Tower, Business Bay",
@@ -96,7 +100,7 @@ export default function RootLayout({
     hasMap: "https://maps.google.com/?q=Escape+Tower+Business+Bay+Dubai",
     areaServed: ["Dubai", "Business Bay", "UAE"],
     foundingDate: "2007",
-    image: "https://siryano.com/hero-barbershop-professional.jpg",
+    image: "https://www.siryano.com/hero-barbershop-professional.jpg",
   };
 
   return (
