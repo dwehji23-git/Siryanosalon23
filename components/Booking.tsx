@@ -1,15 +1,87 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { ArrowRight, Phone, Clock, MapPin } from "@phosphor-icons/react";
+import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { ArrowRight, Phone, Clock, MapPin, X } from "@phosphor-icons/react";
 
 export default function Booking() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [showCallModal, setShowCallModal] = useState(false);
 
   return (
     <section id="contact" className="py-32 bg-[#0A0A0A]" ref={ref}>
+      {/* Call Location Picker Modal */}
+      <AnimatePresence>
+        {showCallModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/70 backdrop-blur-sm"
+            onClick={() => setShowCallModal(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="relative bg-[#0C0C0C] border border-[#2A2A2A] w-full max-w-md overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between p-6 border-b border-[#1E1E1E]">
+                <h3 className="text-[14px] tracking-[0.2em] text-[#C8A96E] uppercase font-medium">
+                  Choose Location
+                </h3>
+                <button
+                  onClick={() => setShowCallModal(false)}
+                  className="text-[#5A5A5A] hover:text-[#F5F0E8] transition-colors"
+                >
+                  <X size={18} weight="bold" />
+                </button>
+              </div>
+              <div className="p-2">
+                <a
+                  href="tel:+97143387337"
+                  className="flex items-center gap-4 p-5 hover:bg-[#141414] transition-colors duration-300 group"
+                >
+                  <div className="w-10 h-10 flex items-center justify-center border border-[#C8A96E]/30 shrink-0">
+                    <MapPin size={16} weight="light" className="text-[#C8A96E]" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-[15px] text-[#F5F0E8] font-medium group-hover:text-[#C8A96E] transition-colors">
+                      Dubai
+                    </p>
+                    <p className="text-[13px] text-[#5A5A5A] font-light">
+                      +971 4 338 7337
+                    </p>
+                  </div>
+                  <Phone size={16} weight="bold" className="text-[#C8A96E] opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+                <div className="mx-5 border-t border-[#1E1E1E]" />
+                <a
+                  href="tel:+97124403338"
+                  className="flex items-center gap-4 p-5 hover:bg-[#141414] transition-colors duration-300 group"
+                >
+                  <div className="w-10 h-10 flex items-center justify-center border border-[#C8A96E]/30 shrink-0">
+                    <MapPin size={16} weight="light" className="text-[#C8A96E]" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-[15px] text-[#F5F0E8] font-medium group-hover:text-[#C8A96E] transition-colors">
+                      Abu Dhabi
+                    </p>
+                    <p className="text-[13px] text-[#5A5A5A] font-light">
+                      +971 2 440 3338
+                    </p>
+                  </div>
+                  <Phone size={16} weight="bold" className="text-[#C8A96E] opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         {/* Full-width CTA Banner */}
         <motion.div
@@ -39,13 +111,13 @@ export default function Booking() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-              <a
-                href="tel:+13128471928"
-                className="group flex items-center gap-2 bg-[#0C0C0C] text-[#C8A96E] px-8 py-4 text-[12px] tracking-[0.2em] uppercase font-semibold hover:bg-[#1A1A1A] transition-all duration-300 active:scale-[0.98]"
+              <button
+                onClick={() => setShowCallModal(true)}
+                className="group flex items-center gap-2 bg-[#0C0C0C] text-[#C8A96E] px-8 py-4 text-[12px] tracking-[0.2em] uppercase font-semibold hover:bg-[#1A1A1A] transition-all duration-300 active:scale-[0.98] cursor-pointer"
               >
                 <Phone size={14} weight="bold" />
                 Call Now
-              </a>
+              </button>
               <a
                 href="/home-service"
                 className="group flex items-center gap-2 bg-transparent border-2 border-[#0C0C0C] text-[#0C0C0C] px-8 py-4 text-[12px] tracking-[0.2em] uppercase font-semibold hover:bg-[#0C0C0C]/10 transition-all duration-300 active:scale-[0.98]"
