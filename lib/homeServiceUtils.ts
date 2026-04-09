@@ -58,8 +58,7 @@ export function generateWhatsAppLink(booking: CompleteBooking): string {
   // Encode message for WhatsApp URL
   const encodedMessage = encodeURIComponent(message);
 
-  // WhatsApp Business phone for Siryano (from existing Booking component)
-  const phone = '971501234567'; // This should match the phone in your Booking.tsx
+  const phone = '971568339874';
 
   return `https://wa.me/${phone}?text=${encodedMessage}`;
 }
