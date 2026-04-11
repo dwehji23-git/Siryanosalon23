@@ -139,12 +139,14 @@ export default function Booking() {
             {
               icon: MapPin,
               label: "Dubai",
-              lines: ["Business Bay", "Escape Tower — Next to Metro", "Free Parking Available"],
+              lines: ["Business Bay", "Escape Tower — Next to Metro", "Free Parking Available", "+971 56 833 9874"],
+              link: "https://maps.app.goo.gl/LC3VJfmLatrhFBBMA",
             },
             {
               icon: MapPin,
               label: "Abu Dhabi",
-              lines: ["Al Seef Village Mall, 1st Floor", "27 Al Murouj St", "Al Muntazah — Zone 1"],
+              lines: ["Al Seef Village Mall, 1st Floor", "27 Al Murouj St", "Al Muntazah — Zone 1", "+971 56 833 9917"],
+              link: "https://maps.app.goo.gl/1Qyi1SEbvyWgTzmU8",
             },
             {
               icon: Clock,
@@ -158,7 +160,7 @@ export default function Booking() {
             },
           ].map((item, i) => {
             const Icon = item.icon;
-            return (
+            const content = (
               <motion.div
                 key={item.label}
                 initial={{ opacity: 0, y: 20 }}
@@ -184,6 +186,13 @@ export default function Booking() {
                   ))}
                 </div>
               </motion.div>
+            );
+            return 'link' in item && item.link ? (
+              <a key={item.label} href={item.link} target="_blank" rel="noopener noreferrer">
+                {content}
+              </a>
+            ) : (
+              <div key={item.label}>{content}</div>
             );
           })}
         </div>
