@@ -186,7 +186,7 @@ export default function HomeServices() {
         className="text-center py-8 border-t border-[#1E1E1E]"
       >
         <p className="text-[13px] text-[#5A5A5A] tracking-wide">
-          Serving <span className="text-[#C8A96E] font-medium">Business Bay, Dubai & Surrounding Areas</span> • Open <span className="text-[#C8A96E] font-medium">9:00 AM – 11:00 PM</span> Daily
+          Serving <span className="text-[#C8A96E] font-medium">Business Bay, Dubai & Surrounding Areas</span> • Open <span className="text-[#C8A96E] font-medium">10:00 AM – 11:00 PM</span> Daily
         </p>
         <p className="text-[12px] text-[#4A4A4A] mt-2 font-light">
           Best barber home service in UAE • Professional haircuts, beard shaping & grooming at your location

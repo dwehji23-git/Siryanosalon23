@@ -151,7 +151,7 @@ export default function Booking() {
             {
               icon: Clock,
               label: "Hours",
-              lines: ["Monday – Sunday", "9:00 AM – 11:00 PM", "Same-Day Booking Available"],
+              lines: ["Monday – Sunday", "10:00 AM – 11:00 PM", "Same-Day Booking Available"],
             },
             {
               icon: Phone,
